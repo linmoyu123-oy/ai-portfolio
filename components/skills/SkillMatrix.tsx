@@ -16,10 +16,10 @@ export function SkillMatrix({ skills }: SkillMatrixProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900"
+          className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-gray-800"
         >
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-zinc-900 dark:text-zinc-100">
+            <h3 className="font-bold text-zinc-900 dark:text-white">
               {skill.name}
             </h3>
             <span className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -27,7 +27,7 @@ export function SkillMatrix({ skills }: SkillMatrixProps) {
             </span>
           </div>
 
-          <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-800 rounded-full mb-4 overflow-hidden">
+          <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-700 rounded-full mb-4 overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${skill.level}%` }}
@@ -40,7 +40,7 @@ export function SkillMatrix({ skills }: SkillMatrixProps) {
             {skill.items.map((item) => (
               <span
                 key={item}
-                className="px-2 py-1 text-xs rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+                className="px-2 py-1 text-xs rounded-md bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300"
               >
                 {item}
               </span>

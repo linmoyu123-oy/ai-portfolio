@@ -15,10 +15,10 @@ export default function ProjectsPage() {
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
             项目展示
           </h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="text-lg text-zinc-600 dark:text-zinc-300">
             从模型部署到智能应用，AI 全链路实践
           </p>
         </div>

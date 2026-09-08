@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { FloatingChat } from "@/components/ui/FloatingChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <BackToTop />
+        <FloatingChat />
       </body>
     </html>
   );

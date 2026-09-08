@@ -14,14 +14,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111827;
+    --foreground: #f9fafb;
   }
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #111827;
+  --foreground: #f9fafb;
 }
 
 body {
@@ -97,4 +97,27 @@ html {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Dark mode improvements */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+/* Better contrast for dark mode text */
+.dark .text-zinc-400 {
+  color: #a1a1aa;
+}
+
+.dark .text-zinc-500 {
+  color: #a1a1aa;
+}
+
+.dark .text-zinc-600 {
+  color: #d4d4d8;
 }
