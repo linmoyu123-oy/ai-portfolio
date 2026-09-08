@@ -7,6 +7,8 @@ import { ProjectDetail } from "@/components/projects/ProjectDetail";
 import { ChatDemo } from "@/components/chat/ChatDemo";
 import type { Project } from "@/types";
 
+export const dynamic = "force-static";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

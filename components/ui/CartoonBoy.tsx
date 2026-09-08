@@ -165,38 +165,30 @@ export function CartoonBoy() {
               <ellipse cx="68" cy="58" rx="6" ry="7" fill="white" />
               <ellipse cx="92" cy="58" rx="6" ry="7" fill="white" />
               {/* Pupils - follow mouse */}
-              <motion.circle
-                cx="68"
-                cy="58"
+              <circle
+                cx={68 + eyeX}
+                cy={58 + eyeY}
                 r="3.5"
                 fill="#1e293b"
-                animate={{ cx: 68 + eyeX, cy: 58 + eyeY }}
-                transition={{ type: "spring", stiffness: 200, damping: 10 }}
               />
-              <motion.circle
-                cx="92"
-                cy="58"
+              <circle
+                cx={92 + eyeX}
+                cy={58 + eyeY}
                 r="3.5"
                 fill="#1e293b"
-                animate={{ cx: 92 + eyeX, cy: 58 + eyeY }}
-                transition={{ type: "spring", stiffness: 200, damping: 10 }}
               />
               {/* Eye shine - follows mouse slightly */}
-              <motion.circle
-                cx="70"
-                cy="56"
+              <circle
+                cx={70 + eyeX * 0.5}
+                cy={56 + eyeY * 0.5}
                 r="1.5"
                 fill="white"
-                animate={{ cx: 70 + eyeX * 0.5, cy: 56 + eyeY * 0.5 }}
-                transition={{ type: "spring", stiffness: 250, damping: 12 }}
               />
-              <motion.circle
-                cx="94"
-                cy="56"
+              <circle
+                cx={94 + eyeX * 0.5}
+                cy={56 + eyeY * 0.5}
                 r="1.5"
                 fill="white"
-                animate={{ cx: 94 + eyeX * 0.5, cy: 56 + eyeY * 0.5 }}
-                transition={{ type: "spring", stiffness: 250, damping: 12 }}
               />
             </motion.g>
 
