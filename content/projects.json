@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "ai-agent-deployment",
+    "title": "大模型与 AI Agent 部署实践",
+    "subtitle": "从模型部署到 Agent 搭建的完整链路",
+    "tags": ["Qwen 14B", "Ollama", "LM Studio", "OpenClaw"],
+    "period": "2026.03 - 2026.06",
+    "description": "本地部署开源大模型并搭建 AI Agent，实现从模型服务到智能应用的全链路实践。",
+    "problem": "想要深入理解大模型应用开发，但云端 API 调用无法接触底层细节。需要本地部署开源模型，掌握从模型加载、推理优化到 Agent 搭建的完整流程。",
+    "solution": "本地部署 Qwen 14B（Q4_K_M 量化版），通过 Ollama / LM Studio 完成模型加载与 API 接入。基于 OpenClaw 框架搭建 AI 助手，接入 QQ 机器人作为交互入口，实现多轮对话、定时任务调度与脚本调用。",
+    "highlights": [
+      "本地部署 Qwen 14B 量化版，平衡性能与资源消耗",
+      "通过 Ollama/LM Studio 实现模型加载与 API 接入",
+      "基于 OpenClaw 搭建 AI Agent，支持工具调用与定时任务"
+    ],
+    "results": [
+      "完成 4 个开源模型的本地部署与性能测试",
+      "实现多轮对话、上下文管理、工具调用等 Agent 核心能力",
+      "接入 QQ 机器人作为交互入口，实现端到端可用的 AI 助手"
+    ],
+    "hasDemo": true,
+    "demoPrompt": "你是王世达的作品集助手，负责介绍他的大模型部署与 AI Agent 项目。请简洁地回答关于这个项目的技术细节。",
+    "github": "https://github.com/linmoyu123-oy"
+  },
+  {
+    "slug": "campus-parttime-miniprogram",
+    "title": "校园兼职小程序",
+    "subtitle": "面向校园的兼职信息与接单平台",
+    "tags": ["微信小程序", "Java SpringBoot", "MySQL", "Node.js"],
+    "period": "2025.09 - 2025.12",
+    "description": "面向校园的兼职信息与接单平台，支持用户发布兼职、申请接单，管理员后台管理。",
+    "problem": "校园兼职信息分散，学生找兼职效率低，雇主发布信息渠道有限。需要一个集中的平台来连接学生与雇主。",
+    "solution": "使用微信小程序原生开发前端，Java SpringBoot + MyBatis + MySQL 构建后端。实现用户/管理员两级角色，支持 JWT 登录鉴权、岗位发布与分页检索、接单申请、文件上传、全局异常处理。",
+    "highlights": [
+      "独立完成后端全流程：JWT 鉴权 + 拦截器统一校验",
+      "按 controller-service-mapper 分层架构设计",
+      "微信小程序原生开发，打通登录、浏览、发布、申请全流程"
+    ],
+    "results": [
+      "开源在 GitHub，完整可运行",
+      "实现两级权限系统（用户/管理员）",
+      "支持多条件组合筛选与分页检索"
+    ],
+    "hasDemo": false,
+    "github": "https://github.com/linmoyu123-oy/campus-parttime.git"
+  },
+  {
+    "slug": "certifications",
+    "title": "华为 AI 认证体系",
+    "subtitle": "多项华为云 AI 认证，证明学习能力",
+    "tags": ["HCIA-AI", "AI Agent", "RAG", "HarmonyOS"],
+    "period": "2026.04 - 2026.08",
+    "description": "通过多项华为 AI 相关认证，涵盖大模型、AI Agent、RAG 等方向。",
+    "problem": "AI 领域技术更新快，需要系统性学习来建立知识体系，同时通过权威认证证明能力。",
+    "solution": "针对性学习并考取华为系列认证，从 HCIA-AI 到 AI Agent、RAG 等专项认证，构建完整的 AI 知识图谱。",
+    "highlights": [
+      "HCIA-AI 华为认证 AI 工程师",
+      "AI Agent 技术与应用微认证",
+      "基于 DeepSeek 和 RAG 构建智能小助手微认证",
+      "HarmonyOS 应用开发者高级认证"
+    ],
+    "results": [
+      "获得 5 项华为 AI 相关认证",
+      "系统掌握大模型、Agent、RAG 等核心技术",
+      "具备华为云 ModelArts 平台实操能力"
+    ],
+    "hasDemo": false,
+    "github": ""
+  }
+]
