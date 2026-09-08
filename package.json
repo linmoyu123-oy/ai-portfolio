@@ -8,10 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "pages:build": "npx @opennextjs/cloudflare build",
-    "pages:dev": "npx wrangler pages dev .worker-next --compatibility-flag=nodejs_compat",
-    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .worker-next"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "framer-motion": "^13.2.0",
@@ -21,7 +18,6 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.6",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.6.3",

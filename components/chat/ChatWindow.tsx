@@ -3,7 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
-import type { ChatMessage as ChatMessageType } from "@/lib/api";
+
+interface ChatMessageType {
+  role: "user" | "assistant" | "system";
+  content: string;
+}
 
 interface ChatWindowProps {
   systemPrompt: string;
