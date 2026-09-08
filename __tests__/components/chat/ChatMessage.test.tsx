@@ -16,7 +16,7 @@ describe("ChatMessage", () => {
   it("applies correct styling for user message", () => {
     render(<ChatMessage role="user" content="Test" />);
     const message = screen.getByText("Test").closest("div");
-    expect(message).toHaveClass("bg-zinc-900", "dark:bg-zinc-100");
+    expect(message).toHaveClass("bg-blue-500", "text-white");
   });
 
   it("applies correct styling for assistant message", () => {

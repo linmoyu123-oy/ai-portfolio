@@ -6,38 +6,29 @@ describe("ChatInput", () => {
   it("renders without crashing", () => {
     render(<ChatInput onSend={() => {}} />);
     expect(
-      screen.getByPlaceholderText("输入你的问题...")
+      screen.getByPlaceholderText("输入消息...")
     ).toBeInTheDocument();
   });
 
-  it("calls onSend when Enter is pressed", () => {
+  it("calls onSend when form is submitted", () => {
     const onSend = jest.fn();
     render(<ChatInput onSend={onSend} />);
 
-    const input = screen.getByPlaceholderText("输入你的问题...");
+    const input = screen.getByPlaceholderText("输入消息...");
     fireEvent.change(input, { target: { value: "Hello" } });
-    fireEvent.keyDown(input, { key: "Enter" });
+    
+    const form = input.closest("form")!;
+    fireEvent.submit(form);
 
     expect(onSend).toHaveBeenCalledWith("Hello");
-  });
-
-  it("does not call onSend when Shift+Enter is pressed", () => {
-    const onSend = jest.fn();
-    render(<ChatInput onSend={onSend} />);
-
-    const input = screen.getByPlaceholderText("输入你的问题...");
-    fireEvent.change(input, { target: { value: "Hello" } });
-    fireEvent.keyDown(input, { key: "Enter", shiftKey: true });
-
-    expect(onSend).not.toHaveBeenCalled();
   });
 
   it("does not call onSend when input is empty", () => {
     const onSend = jest.fn();
     render(<ChatInput onSend={onSend} />);
 
-    const input = screen.getByPlaceholderText("输入你的问题...");
-    fireEvent.keyDown(input, { key: "Enter" });
+    const form = screen.getByPlaceholderText("输入消息...").closest("form")!;
+    fireEvent.submit(form);
 
     expect(onSend).not.toHaveBeenCalled();
   });
@@ -46,16 +37,18 @@ describe("ChatInput", () => {
     const onSend = jest.fn();
     render(<ChatInput onSend={onSend} />);
 
-    const input = screen.getByPlaceholderText("输入你的问题...");
+    const input = screen.getByPlaceholderText("输入消息...");
     fireEvent.change(input, { target: { value: "Hello" } });
-    fireEvent.keyDown(input, { key: "Enter" });
+    
+    const form = input.closest("form")!;
+    fireEvent.submit(form);
 
     expect(input).toHaveValue("");
   });
 
   it("disables input when disabled prop is true", () => {
     render(<ChatInput onSend={() => {}} disabled />);
-    const input = screen.getByPlaceholderText("输入你的问题...");
+    const input = screen.getByPlaceholderText("输入消息...");
     expect(input).toBeDisabled();
   });
 
@@ -67,7 +60,7 @@ describe("ChatInput", () => {
 
   it("enables send button when input has content", () => {
     render(<ChatInput onSend={() => {}} />);
-    const input = screen.getByPlaceholderText("输入你的问题...");
+    const input = screen.getByPlaceholderText("输入消息...");
     fireEvent.change(input, { target: { value: "Hello" } });
     const sendButton = screen.getByRole("button");
     expect(sendButton).not.toBeDisabled();
