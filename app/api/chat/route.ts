@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createChatCompletionSync, ChatMessage } from "@/lib/api";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-export const runtime = 'edge';
+interface ChatMessage {
+  role: "user" | "assistant" | "system";
+  content: string;
+}
 
 interface RequestBody {
   messages: ChatMessage[];
@@ -10,6 +13,16 @@ interface RequestBody {
 
 export async function POST(request: NextRequest) {
   try {
+    const { env } = getCloudflareContext();
+    const apiKey = env.OPENROUTER_API_KEY;
+
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "API key not configured" },
+        { status: 500 }
+      );
+    }
+
     const body: RequestBody = await request.json();
 
     if (!body.messages || !Array.isArray(body.messages)) {
@@ -27,9 +40,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await createChatCompletionSync({
-      messages: body.messages,
-      systemPrompt: body.systemPrompt,
+    const systemMessage: ChatMessage | null = body.systemPrompt
+      ? { role: "system", content: body.systemPrompt }
+      : null;
+
+    const allMessages = systemMessage
+      ? [systemMessage, ...body.messages]
+      : body.messages;
+
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": request.headers.get("origin") || "https://ai-portfolio-62b.pages.dev",
+        "X-Title": "AI Portfolio",
+      },
+      body: JSON.stringify({
+        model: "auto",
+        messages: allMessages,
+        stream: true,
+        max_tokens: 1024,
+      }),
     });
 
     if (!response.ok) {

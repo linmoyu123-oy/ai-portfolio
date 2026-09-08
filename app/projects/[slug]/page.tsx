@@ -7,21 +7,19 @@ import { ProjectDetail } from "@/components/projects/ProjectDetail";
 import { ChatDemo } from "@/components/chat/ChatDemo";
 import type { Project } from "@/types";
 
-export const dynamic = "force-static";
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
+export function generateStaticParams() {
+  return (projects as Project[]).map((project) => ({
     slug: project.slug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug) as Project | undefined;
+  const project = (projects as Project[]).find((p) => p.slug === slug) as Project | undefined;
 
   if (!project) {
     return { title: "项目未找到" };
