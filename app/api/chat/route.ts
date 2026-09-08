@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createChatCompletionSync, ChatMessage } from "@/lib/api";
 
+export const runtime = 'edge';
+
 interface RequestBody {
   messages: ChatMessage[];
   systemPrompt?: string;
